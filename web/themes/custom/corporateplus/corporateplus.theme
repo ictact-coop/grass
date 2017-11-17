@@ -1473,6 +1473,11 @@ function corporateplus_preprocess_views_view_list__mt_isotope(&$variables) {
   $variables['#attached']['library'][] = 'corporateplus/view-promoted-items';
 }
 
+function corporateplus_preprocess_views_view_list__activity(&$variables) {
+  $variables['#attached']['library'][] = 'corporateplus/isotope-filters-grid-init';
+  $variables['#attached']['library'][] = 'corporateplus/view-promoted-items';
+}
+
 /**
  * Implements hook_preprocess_HOOK() for testimonials list views.
  */

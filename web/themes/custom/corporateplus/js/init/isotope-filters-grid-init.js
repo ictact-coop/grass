@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+  console.log('isotope-filters-grid-init!!!!!!!!!!!!!');
   var masonryContainer = $(".isotope-container"),
   filtersMasonry = $(".view-promoted-items .filters");
   filtersMasonry.prepend( "<li class=\"active\"><a href=\"#\" data-filter=\"*\">" + drupalSettings.corporateplus.isotopeFiltersGridInit.isotopeFiltersText + "</a></li>" );

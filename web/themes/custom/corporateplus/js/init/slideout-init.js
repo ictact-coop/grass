@@ -8,9 +8,9 @@ jQuery(document).ready(function($) {
     'touch': drupalSettings.corporateplus.slideoutInit.slideoutTouchSwipe
   });
 
-  $(window).load(function() {
-    $('.slideout-toggle').fadeIn('fast');
-  });
+  // $(window).load(function() {
+  //   $('.slideout-toggle').fadeIn('fast');
+  // });
 
   // Toggle button
   document.querySelector('.slideout-toggle').addEventListener('click', function() {
