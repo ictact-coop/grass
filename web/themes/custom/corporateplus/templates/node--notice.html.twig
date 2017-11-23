@@ -11,26 +11,17 @@
     {% if display_submitted or mt_setting.reading_time or mt_setting.share_links or mt_setting.font_resize or mt_setting.post_progress or mt_setting.print_button or (node.comment and comment_count > 0) %}
       {% if display_submitted or (node.comment and comment_count > 0) %}
         {% if display_submitted %}
-          <div class="node__user-info">
-            {% if author_picture %}
-              <div class="user-picture">
-                <div{{ author_attributes }}>
-                  {{ author_picture }}
-                </div>
-              </div>
-            {% endif %}
+          <div class="node__meta">
+            {{ author_picture }}
+            <span{{ author_attributes.addClass('node__submitted-info') }}>
+              {% trans %}
+                <span class="node__submitted-info-text">By</span> {{ author_name }} on 
+                <span class="node__submitted-date">
+                  {{ date }}
+                </span>
+              {% endtrans %}
+            </span>
             {{ metadata }}
-          </div>
-          <div class="node__submitted-date">
-            <div class="month">{{ node.createdtime|format_date('custom', 'M') }}</div>
-            <div class="day">{{ node.createdtime|format_date('custom', 'd') }}</div>
-            <div class="year">{{ node.createdtime|format_date('custom', 'Y') }}</div>
-          </div>
-        {% endif %}
-        {% if node.comment and comment_count > 0 %}
-          <div class="node__comments">
-            <i class="fa fa-comment"></i>
-            <div class="node__comments-count">{{ comment_count }}</div>
           </div>
         {% endif %}
       {% endif %}
@@ -150,13 +141,6 @@
     </h2>
   {% endif %}
   {{ title_suffix }}
-  {% if display_submitted %}
-    <div class="node__meta">
-      <span{{ author_attributes.addClass('node__submitted-info') }}>
-        {% trans %}<span class="node__submitted-info-text">By</span> {{ author_name }}{% endtrans %}
-      </span>
-    </div>
-  {% endif %}
 {% endblock %}
 {% block content %}
   {{ attach_library('corporateplus/node-article') }}
